@@ -16,7 +16,7 @@ log.debug('Getting list of repos...');
 Q.all(_.map(_.range(5), function (page) {
     return searchRepos({
         q: 'language:javascript',
-        page: page + 3,
+        page: page + 1,
         per_page: 100, // it appears that any number > 100 will default to 100
     });
 })).then(function (both) {
