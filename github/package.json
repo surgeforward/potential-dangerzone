@@ -1,0 +1,20 @@
+{
+  "name": "github-crawler",
+  "version": "0.0.0",
+  "description": "A Node GitHub Crawler that gathers some snippets of code for future use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.4.0",
+    "download": "^0.1.16",
+    "lodash": "^2.4.1",
+    "node-monkey": "^0.2.8",
+    "octonode": "^0.6.2",
+    "paralleljs": "^0.2.1",
+    "q": "^1.0.1"
+  }
+}
