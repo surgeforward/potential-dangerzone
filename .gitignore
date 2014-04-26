@@ -2,3 +2,10 @@ node_modules/
 bower_components/
 .DS_Store
 *.sublime-workspace
+
+# Repos will be downloaded here and we don't 
+# want to store them in our repo necessarily.
+# We do, however want the folder in the repo, 
+# but not any of the contents!
+github/tmp/*
+!github/tmp/.gitkeep
