@@ -35,15 +35,15 @@ Q.all(_.map(_.range(5), function (page) {
             name: repo.name + '.tar.gz' 
         }, './tmp', { 
             extract: true 
-        }).then(function (file) {
+        }).then(function () {
             log.debug('Downloaded ' + repo.name);
-
-            return file;
+            // I think this is how it works...
+            return './tmp/' + repo.name + '-master/';
         });
     }));
-}).then(function (repos) {
-    // log.debug(repos);
-    log.debug('All repos downloaded'); // and unzipped');
+}).then(function (folders) {
+    // log.debug(folders);
+    log.debug('All repos downloaded and unzipped');
     // now what...?
 }).catch(function (err) {
     log.error(err.stack || err.message || err);
