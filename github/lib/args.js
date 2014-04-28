@@ -3,10 +3,10 @@ var f         = require('util').format;
 var commander = require('commander');
 
 commander
-  .version('0.1.0')
-  .option('-l, --language [language]', 'Language to get search for for repos [javascript]', 'javascript')
-  .option('-r, --records [num]', 'Number of records to get [100]', determineRecords)
-  .option('-d, --debug', 'Start with debugger')
+  .version('0.1.0', '-v, --version')
+  .option('-l, --language [language]', 'language to get search for for repos [javascript]', 'javascript')
+  .option('-r, --records [num]', 'number of records to get [100]', determineRecords)
+  .option('-d, --debug', 'start with node-monkey debugger')
   .parse(process.argv);
 
 if (!commander.records) commander.records = determineRecords(100);
