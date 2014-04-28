@@ -1,11 +1,15 @@
+#!/usr/bin/env node
+
 var Q        = require('q');
 var _        = require('lodash');
 var log      = require('./lib/log');
 var download = require('./lib/download');
 var f        = require('util').format;
+var args     = require('./lib/args');
+var github   = require('octonode');
 
-var github = require('octonode');
-// require('node-monkey').start({ host: '127.0.0.1', port:'2222' });
+if (args.debug) 
+    require('node-monkey').start({ host: '127.0.0.1', port:'2222' });
 
 Q.longStackSupport = true;
 
@@ -13,17 +17,17 @@ var client = github.client();
 var ghsearch = client.search();
 var searchRepos = Q.nbind(ghsearch.repos, ghsearch);
 
-log.debug('Getting list of repos...');
-Q.all(_.map(_.range(5), function (page) {
+log.debug(f('Getting list of %s repos...', args.language));
+Q.all(_.map(args.records, function (request) {
     return searchRepos({
-        q: 'language:javascript',
-        page: page + 1,
-        per_page: 5, // it appears that any number > 100 will default to 100
+        q: f('language:%s', args.language),
+        page: request.page,
+        per_page: request.perPage
     });
 })).then(function (both) {
     // 'both' is in [[repoData, headers], [repoData, headers], ...]
     var repos = _.chain(both).pluck(0).flatten('items').value();
-    log.debug(f('Got list of %d repos', repos.length));
+    log.debug(f('Got list of %d %s repos', repos.length, args.language));
     
     log.debug('Downloading repos...');
     return Q.all(_.map(repos, function (repo) {
