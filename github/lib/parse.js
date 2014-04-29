@@ -6,7 +6,7 @@ var chalk        = require('chalk');
 var db           = require('./db')('codecollection');
 var fs           = require('fs');
 var path         = require('path');
-var isBinaryFile = require("isbinaryfile");
+var isBinaryFile = require('isbinaryfile');
 
 // denodeify wasn't working here for some reason...
 // var readFile = Q.denodeify(fs.feadFile);
@@ -25,20 +25,6 @@ var readFile = (function (fn) {
 })(fs.readFile);
 
 var isBinary = Q.denodeify(isBinaryFile);
-// var isBinary = (function (fn) {
-//     return function (file) {
-//         var deferred = Q.defer();
-
-//         fn(file, function (err, text) {
-//             if (err)
-//                 return deferred.reject(err);
-//             deferred.resolve(text);
-//         });
-
-//         return deferred.promise;
-//     };
-// })(isBinaryFile);
-
 
 module.exports = function (folder, language) {
     log.info(f('Parsing %s...', chalk.yellow(folder)));
