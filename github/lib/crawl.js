@@ -41,7 +41,9 @@ module.exports = function (language, numRepos) {
                 log.info(f('Downloaded %s', chalk.green(repo.name)));
                 // I think this is how it works...
                 return f('./tmp/%s-master/', repo.name);
-            }).then(parse);
+            }).then(function (path) {
+                return parse(path, language);
+            });
         }));
     }).then(function (folders) {
         log.info(f('Finished processing %s', chalk.magenta(language)));

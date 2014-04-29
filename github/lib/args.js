@@ -3,7 +3,7 @@ var f         = require('util').format;
 var commander = require('commander');
 
 commander
-    .version('0.1.0', '-v, --version')
+    .version(require('../package.json').version, '-v, --version')
     .option('-l, --languages [languages]', 'languages to get search for for repos [javascript]', list)
     .option('-r, --repos [num]', 'number of repos to get [5]', 5)
     .option('-d, --debug', 'start with node-monkey debugger')

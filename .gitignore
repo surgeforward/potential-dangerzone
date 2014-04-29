@@ -9,3 +9,5 @@ bower_components/
 # but not any of the contents!
 github/tmp/*
 !github/tmp/.gitkeep
+github/db/*
+!github/db/.gitkeep

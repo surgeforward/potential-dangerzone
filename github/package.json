@@ -1,6 +1,6 @@
 {
   "name": "github-crawler",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Node GitHub Crawler that gathers some snippets of code for future use.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,9 @@
     "chalk": "^0.4.0",
     "commander": "^2.2.0",
     "download": "^0.1.16",
+    "isbinaryfile": "^2.0.1",
     "lodash": "^2.4.1",
+    "mongojs": "^0.13.0",
     "node-monkey": "^0.2.8",
     "octonode": "^0.6.2",
     "paralleljs": "^0.2.1",
