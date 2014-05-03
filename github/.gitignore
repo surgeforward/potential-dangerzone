@@ -1,0 +1,11 @@
+# Repos will be downloaded here and we don't 
+# want to store them in our repo necessarily.
+# We do, however want the folder in the repo, 
+# but not any of the contents!
+tmp/*
+!tmp/.gitkeep
+db/*
+!db/.gitkeep
+
+# Ignore db.js file that contains credentials (see db.example.js for how to set it up)
+lib/db.js
